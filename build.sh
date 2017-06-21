@@ -9,7 +9,7 @@ if [ "$1" == "" ]; then
   DESTINATION_FILE="libphonenumber.js"
 elif [[ $1 =~ ^(7\.7\.4|7\.7\.5|8\.) ]]; then
   BRANCH="v$1"
-  DESTINATION_FILE="$BRANCH.js"
+  DESTINATION_FILE="libphonenumber-$1.js"
 else
   BRANCH="libphonenumber-$1"
   DESTINATION_FILE="$BRANCH.js"
