@@ -4,9 +4,14 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
+reVersion = '^(7\.7\.4|7\.7\.5|8\.)'
+
 if [ "$1" == "" ]; then
   BRANCH="master"
   DESTINATION_FILE="libphonenumber.js"
+elif [[ $1 =~ $reVersion ]]; then
+  BRANCH="v$1"
+  DESTINATION_FILE="$BRANCH.js"
 else
   BRANCH="libphonenumber-$1"
   DESTINATION_FILE="$BRANCH.js"
