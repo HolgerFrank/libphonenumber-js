@@ -15,7 +15,7 @@ else
   DESTINATION_FILE="$BRANCH.js"
 fi
 
-CLOSURE_SERVICE="http://closure-compiler.appspot.com/compile"
+CLOSURE_SERVICE="https://closure-compiler.appspot.com/compile"
 BASE_URL="https://raw.githubusercontent.com/googlei18n/libphonenumber/$BRANCH/javascript/i18n/phonenumbers"
 
 output=$(
@@ -28,10 +28,12 @@ output=$(
     -d use_types_for_optimization=true                  \
     -d disable_property_renaming=false                  \
     -d code_url="$BASE_URL/asyoutypeformatter.js"       \
-    -d code_url="$BASE_URL/phonenumberutil.js"          \
-    -d code_url="$BASE_URL/phonemetadata.pb.js"         \
     -d code_url="$BASE_URL/metadata.js"                 \
+    -d code_url="$BASE_URL/phonemetadata.pb.js"         \
     -d code_url="$BASE_URL/phonenumber.pb.js"           \
+    -d code_url="$BASE_URL/phonenumberutil.js"          \
+    -d code_url="$BASE_URL/shortnumberinfo.js"          \
+    -d code_url="$BASE_URL/shortnumbermetadata.js"      \
     -d js_externs="exports"                             \
     --data-urlencode "js_code@$DIR/bootstrap.js"        \
     "$CLOSURE_SERVICE"
